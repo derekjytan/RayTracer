@@ -21,6 +21,13 @@ class interval {
             return min < x && x < max;
         }
 
+        // Generating pixels with multiple samples
+        // Ensure the color cponenets of the final result remain in the range [0, 1]
+        double clamp(double x) const {
+            if (x < min) return min;
+            if (x > max) return max;
+            return x;
+        }
 
         static const interval empty, universe;
 
